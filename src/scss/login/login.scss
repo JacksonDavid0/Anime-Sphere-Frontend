@@ -1,0 +1,112 @@
+.loginPage {
+  display: flex;
+  padding: 1rem;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--primary-text-color);
+  background-color: var(--primary-bg-color);
+}
+
+.loginCont {
+  width: 100%;
+  padding: 2rem;
+  max-width: 30rem;
+  border-radius: 0.75rem;
+  background-color: var(--secondary-bg-color);
+  box-shadow: 0 0 20px 0.5px var(--box-shadow-color);
+
+  .loginText {
+    font-weight: bold;
+    font-size: 2.2rem;
+    text-align: center;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .loginBtn {
+    border: 0;
+    width: 100%;
+    height: 45px;
+    display: flex;
+    height: 2.5rem;
+    font-size: large;
+    font-weight: bold;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    justify-content: center;
+    transition: ease-in-out 300ms;
+    color: var(--primary-bg-color);
+    background-color: var(--accent-color);
+    &:hover {
+      cursor: pointer;
+      background-color: #f38e47;
+    }
+  }
+
+  .forget-password {
+    width: 100%;
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    color: var(--accent-color);
+    margin: 1rem 0;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .loginError {
+    width: 100%;
+    display: flex;
+    font-weight: bold;
+    justify-content: center;
+    color: var(--error-msg-color);
+    margin: 1rem 0;
+  }
+
+  .sign-upText {
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.5rem;
+    // margin-bottom: 1rem;
+
+    .sign-upLink {
+      width: 100%;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      margin: 1rem 0;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .loginCont {
+    padding: 1.5rem;
+    max-width: 100%;
+
+    .loginText {
+      font-size: 2rem;
+    }
+
+    .loginBtn {
+      height: 3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .loginCont {
+    padding: 1rem;
+
+    .loginText {
+      font-size: 1.8rem;
+    }
+  }
+}

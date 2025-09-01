@@ -1,0 +1,81 @@
+.verify {
+  font-family: "Inter", sans-serif;
+  background-color: var(--primary-bg-color); /* bg-[#111827] */
+  color: var(--primary-text-color); /* text-[#F9FAFB] */
+  padding: 1rem; /* p-4 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* min-h-screen */
+}
+
+.verifyContainer {
+  width: 100%; /* w-full */
+  max-width: 672px; /* max-w-2xl */
+  background-color: var(--secondary-bg-color); /* bg-[#1F2937] */
+  padding: 2rem; /* p-8 */
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
+  text-align: center; /* text-center */
+  /* Inline styles to ensure email client compatibility */
+}
+.verifyContainer .verifyHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem; /* mb-6 */
+}
+.verifyContainer .verifyHeader h1 {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700; /* font-bold */
+  margin-left: 1rem; /* ml-4 */
+  text-align: center;
+  color: var(--success-msg-color); /* text-green-400 */
+}
+.verifyContainer .verifyContent {
+  font-size: 0.875rem; /* text-sm */
+}
+.verifyContainer .verifyParagraph {
+  margin-bottom: 1rem; /* mb-4 */
+}
+.verifyContainer .verifyUser {
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+}
+.verifyContainer .verifyButton {
+  background-color: var(--accent-color);
+  color: var(--primary-bg-color);
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 700;
+  display: inline-block; /* Ensure button behaves like a block for padding */
+}
+.verifyContainer .verifyButton :hover {
+  background-color: #d97706;
+}
+.verifyContainer .verifyLogo {
+  width: 50px;
+  height: 50px;
+}
+.verifyContainer .verifyFooter {
+  text-align: center; /* text-center */
+  margin-top: 1.5rem; /* mt-6 */
+  padding-top: 1rem; /* pt-4 */
+  border-top: 1px solid var(--input-bg-color); /* border-t border-gray-700 */
+  font-size: 0.75rem; /* text-xs */
+  color: var(--secondary-text-color); /* text-gray-400 */
+}
+.verifyContainer .verifyFooter p {
+  margin-bottom: 0.25rem; /* mb-1 */
+}
+.verifyContainer .verifyFooter a {
+  color: var(--secondary-text-color); /* text-gray-400 */
+  text-decoration: none;
+}
+.verifyContainer .verifyFooter a:hover {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=verify.css.map */

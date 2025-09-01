@@ -1,0 +1,31 @@
+@use "./colors" as *;
+
+:root {
+  // Light mode colors are the default
+  --primary-bg-color: #{$Light_Primary-Background};
+  --secondary-bg-color: #{$Light_Secondary-Background};
+  --primary-text-color: #{$Light_Primary-Text};
+  --secondary-text-color: #{$Light_Secondary-Text};
+  --input-bg-color: #{$Light_Input-Backround};
+  --input-border-color: #{$Light_Input-Border};
+  --accent-color: #{$Accent-Color};
+  --box-shadow-color: #{$Box-Shadow-Color};
+  --accent-hover-color: #{$Accent-Hover-Color};
+  --success-msg-color: #{$Succes-Message-Color};
+  --error-msg-color: #{$Error-Message-Color};
+}
+
+.dark-mode {
+  // Override with dark mode colors
+  --primary-bg-color: #{$Dark_Primary-Background};
+  --secondary-bg-color: #{$Dark_Secondary-Background};
+  --primary-text-color: #{$Dark_Primary-Text};
+  --secondary-text-color: #{$Dark_Secondary-Text};
+  --input-bg-color: #{$Dark_Input-Backround};
+  --input-border-color: #{$Dark_Input-Border};
+  --accent-color: #{$Accent-Color};
+  --box-shadow-color: #{$Box-Shadow-Color};
+  --accent-hover-color: #{$Accent-Hover-Color};
+  --success-msg-color: #{$Succes-Message-Color};
+  --error-msg-color: #{$Error-Message-Color};
+}

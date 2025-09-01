@@ -1,0 +1,98 @@
+.expired-verification {
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* min-h-screen */
+  padding: 1rem;
+  /* The following styles were already custom CSS in your original code */
+}
+.expired-verification .container {
+  display: flex;
+  width: 100%; /* w-full */
+  max-width: 672px; /* max-w-2xl */
+  justify-content: center;
+  align-items: center;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+.expired-verification .card {
+  width: 100%;
+  max-width: 672px; /* Tailwind's max-w-2xl */
+  background-color: var(--secondary-bg-color);
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px var(--box-shadow-color);
+}
+.expired-verification .header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.expired-verification .header h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-left: 1rem;
+  text-align: center;
+}
+.expired-verification .content {
+  font-size: 0.875rem;
+}
+.expired-verification .warning {
+  color: var(--error-msg-color);
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+.expired-verification .cta-button-container {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.expired-verification .footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--input-border-color);
+  font-size: 0.75rem;
+  color: var(--secondary-text-color);
+}
+.expired-verification .footer p {
+  margin-bottom: 0.25rem;
+}
+.expired-verification .footer a {
+  color: var(--secondary-text-color);
+  text-decoration: none;
+}
+.expired-verification .footer a:hover {
+  text-decoration: underline;
+}
+.expired-verification .button {
+  background-color: var(--accent-color);
+  color: var(--primary-bg-color);
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 700;
+}
+.expired-verification .button:hover {
+  background-color: var(--accent-hover-color);
+}
+
+@media screen and (max-width: 672px) {
+  .expired-verification .card {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .expired-verification .card {
+    padding: 1rem;
+  }
+  .expired-verification .header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/*# sourceMappingURL=expired-verification.css.map */

@@ -1,0 +1,187 @@
+@use "./component-mixin" as *;
+
+.input {
+  padding-bottom: 12px;
+  .label {
+    display: block;
+    font-size: large;
+    font-weight: 600;
+    padding: 10px 0 10px 5px;
+    color: var(--secondary-text-color);
+  }
+  .inputTag {
+    width: 100%;
+    height: 50px;
+    font-weight: 700;
+    font-size: medium;
+    border-radius: 10px;
+    padding: 2% 0 2% 4%;
+    color: var(--primary-text-color);
+    border: 2px solid var(--input-border-color);
+    background-color: var(--input-bg--color);
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 3px 2px var(--primary-bg-color);
+    }
+    &::placeholder {
+      color: var(--secondary-text-color);
+    }
+  }
+  #inputSelect {
+    height: 47.475px;
+    padding: 0 4%;
+    appearance: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .select-image-btn {
+    width: 100%;
+    height: 44px;
+    display: flex;
+    overflow: hidden;
+    font-weight: 700;
+    font-size: medium;
+    border-radius: 10px;
+    padding: 2% 0 2% 4%;
+    color: var(--primary-text-color);
+    border: 2px solid var(--input-border-color);
+    background-color: var(--input-bg--color);
+    &:hover {
+      cursor: pointer;
+    }
+    .select-image {
+      width: 36px;
+      border-radius: 50px;
+      height: 36px;
+      margin-top: -10px;
+    }
+  }
+  .password {
+    display: flex;
+  }
+  .showPassword {
+    border: 0px;
+    width: 10%;
+    display: flex;
+    font-size: 25px;
+    margin-left: -11%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 10px 10px 0;
+    background-color: transparent;
+    color: var(--primary-text-color);
+  }
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px var(--input-bg--color) inset !important;
+    -webkit-text-fill-color: var(--input-border-color-color) !important;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+  .logo-icon {
+    width: 4rem;
+    height: 4rem;
+    color: var(--accent-color);
+  }
+  .logo-text {
+    font-weight: bold;
+    margin-left: 1rem;
+    font-size: 2rem;
+    line-height: 2.25rem;
+    color: var(--primary-text-color);
+  }
+}
+
+.navbar {
+  background-color: var(--secondary-bg-color);
+  color: var(--primary-text-color);
+  border-radius: 0.625rem;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 4px 6px -1px var(--box-shadow-color);
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    margin-bottom: 0;
+    z-index: 10; // Ensure logo stays above the mobile menu
+  }
+
+  .navbar-links {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  .navbar-links a {
+    display: flex;
+    align-items: center;
+    color: var(--primary-text-color);
+    transition: color 0.2s;
+    text-decoration: none;
+
+    &.is-active {
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+  }
+  .navbar-links a:hover {
+    color: var(--accent-color);
+  }
+
+  // Hamburger menu button - hidden on desktop
+  // .navbar-toggler {
+  //   display: none;
+  //   background: none;
+  //   border: none;
+  //   cursor: pointer;
+  //   padding: 0;
+  //   z-index: 10;
+
+  //   span {
+  //     display: block;
+  //     width: 25px;
+  //     height: 3px;
+  //     background-color: var(--primary-text-color);
+  //     margin: 5px 0;
+  //     transition: all 0.3s ease-in-out;
+  //   }
+  // }
+}
+
+.theme-btn {
+  display: flex;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: var(--secondary-text-color);
+  border-radius: 3.125rem;
+  padding: 0;
+  cursor: pointer;
+  &:hover {
+    color: var(--accent-hover-color);
+  }
+  &.is-active {
+    color: var(--accent-hover-color);
+  }
+}
+@include responsive-component;

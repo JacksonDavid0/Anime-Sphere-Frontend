@@ -1,0 +1,132 @@
+@use "./theme" as *;
+@use "./home/home.scss";
+@use "./login/login.scss";
+@use "./register/register.scss";
+@use "./template/template.scss";
+@use "./components/component.scss";
+// @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+  box-sizing: border-box;
+}
+
+body {
+  // font-family: "Inter", sans-serif;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.loading {
+  margin: 0;
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);
+  line-height: 1.6;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .loading-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .loader-svg {
+    position: relative;
+    height: 4rem;
+    width: 4rem;
+  }
+
+  .logo-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    color: var(--accent-color);
+  }
+
+  .loader-path {
+    fill: none;
+    stroke: var(--accent-color);
+    stroke-width: 4;
+    stroke-linecap: round;
+    transform-origin: center;
+    animation: spin-quadrant 1.5s linear infinite;
+  }
+
+  @keyframes spin-quadrant {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.not-found {
+  margin: 0;
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);
+  line-height: 1.6;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .container {
+    padding: 2rem;
+    max-width: 28rem;
+  }
+
+  .heading-404 {
+    font-size: 6rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    line-height: 1;
+  }
+
+  .sub-heading {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-text-color);
+  }
+
+  .message {
+    font-size: 1.125rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 2rem;
+  }
+
+  .btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--primary-bg-color);
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: var(--accent-hover-color);
+  }
+}

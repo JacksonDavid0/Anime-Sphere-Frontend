@@ -1,0 +1,182 @@
+.input {
+  padding-bottom: 12px;
+}
+.input .label {
+  display: block;
+  font-size: large;
+  font-weight: 600;
+  padding: 10px 0 10px 5px;
+  color: var(--secondary-text-color);
+}
+.input .inputTag {
+  width: 100%;
+  height: 50px;
+  font-weight: 700;
+  font-size: medium;
+  border-radius: 10px;
+  padding: 2% 0 2% 4%;
+  color: var(--primary-text-color);
+  border: 2px solid var(--input-border);
+  background-color: var(--input-bg);
+}
+.input .inputTag:focus {
+  outline: none;
+  box-shadow: 0 0 3px 2px var(--primary-bg-color);
+}
+.input .inputTag::placeholder {
+  color: var(--secondary-text-color);
+}
+.input #inputSelect {
+  height: 47.475px;
+  padding: 0 4%;
+  appearance: none;
+}
+.input #inputSelect:hover {
+  cursor: pointer;
+}
+.input .select-image-btn {
+  width: 100%;
+  height: 44px;
+  display: flex;
+  overflow: hidden;
+  font-weight: 700;
+  font-size: medium;
+  border-radius: 10px;
+  padding: 2% 0 2% 4%;
+  color: var(--primary-text-color);
+  border: 2px solid var(--input-border);
+  background-color: var(--input-bg);
+}
+.input .select-image-btn:hover {
+  cursor: pointer;
+}
+.input .select-image-btn .select-image {
+  width: 36px;
+  border-radius: 50px;
+  height: 36px;
+  margin-top: -10px;
+}
+.input .password {
+  display: flex;
+}
+.input .showPassword {
+  border: 0px;
+  width: 10%;
+  display: flex;
+  font-size: 25px;
+  margin-left: -11%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 10px 10px 0;
+  background-color: transparent;
+  color: var(--primary-text-color);
+}
+.input input:-webkit-autofill,
+.input input:-webkit-autofill:focus,
+.input input:-webkit-autofill:hover,
+.input input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px var(--input-bg) inset !important;
+  -webkit-text-fill-color: var(--input-border) !important;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+.logo .logo-icon {
+  width: 4rem;
+  height: 4rem;
+  color: var(--accent-color);
+}
+.logo .logo-text {
+  font-weight: bold;
+  margin-left: 1rem;
+  font-size: 2.5rem;
+  line-height: 2.25rem;
+  color: var(--primary-text-color);
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .input {
+    padding: 0.9375rem 0rem;
+  }
+  .input .label {
+    font-size: 1.5rem;
+  }
+  .input .inputTag {
+    height: 3.375rem;
+    font-size: 1.1875rem;
+  }
+  .input .showPassword {
+    font-size: 2rem;
+    margin-left: -12%;
+  }
+}
+@media (max-width: 768px) {
+  .input {
+    padding: 0.9375rem 0rem;
+  }
+  .input .label {
+    font-size: 1.5rem;
+  }
+  .input .inputTag {
+    height: 3.5625rem;
+    font-size: 1.25rem;
+  }
+  .input .showPassword {
+    font-size: 1.875rem;
+    margin-left: -12%;
+  }
+}
+@media (max-width: 480px) {
+  .input {
+    padding: 0.9375rem 0rem;
+  }
+  .input .label {
+    font-size: 1.5rem;
+  }
+  .input .inputTag {
+    height: 3.5625rem;
+    font-size: 1.25rem;
+  }
+  .input .showPassword {
+    font-size: 1.875rem;
+    margin-left: -15%;
+  }
+  .logo .logo-icon {
+    width: 3.3rem;
+    height: 3.3rem;
+  }
+  .logo .logo-text {
+    margin: 0;
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 320px) {
+  .input {
+    padding: 0.9375rem 0rem;
+  }
+  .input .label {
+    font-size: 1.5rem;
+  }
+  .input .inputTag {
+    height: 3.5625rem;
+    font-size: 1rem;
+  }
+  .input .showPassword {
+    font-size: 2rem;
+    margin-left: -15%;
+  }
+  .logo .logo-icon {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+  .logo .logo-text {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+}
+
+/*# sourceMappingURL=component.css.map */
