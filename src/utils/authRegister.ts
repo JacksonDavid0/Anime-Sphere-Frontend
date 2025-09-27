@@ -1,5 +1,5 @@
 "use server";
-type stateProps = {
+export type stateProps = {
   data?: object;
   error?: { message: string };
   message?: string;
@@ -17,12 +17,14 @@ export async function register(
 
   if (!username || !email || !password || !confirmPassword) {
     return {
+      success: false,
       error: {
         message: "Please fill all fields",
       },
     };
   } else if (password !== confirmPassword) {
     return {
+      success: false,
       error: {
         message: "Password do not match",
       },

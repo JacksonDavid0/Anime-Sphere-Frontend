@@ -31,7 +31,7 @@ export default function ForgottenPassword() {
 
         <form id="forgot-password-form" action={action}>
           <CustomInput label="Email" type="email" name="email" />
-          <button type="submit" disabled={ispending}>
+          <button type="submit" disabled={ispending} className="btn">
             {ispending ? "Loading.." : "Reset Password"}
           </button>
         </form>

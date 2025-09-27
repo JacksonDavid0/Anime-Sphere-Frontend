@@ -52,7 +52,7 @@ export default function Register() {
             placeholder="Confirm your password"
           />
 
-          <button className="registerBtn">
+          <button className="btn">
             {ispending ? "Loading" : "Sign Up"}
           </button>
         </form>

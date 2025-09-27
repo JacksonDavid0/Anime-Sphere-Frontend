@@ -1,0 +1,22 @@
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: var(--accent-color);
+  color: var(--primary-bg-color);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 0 15px var(--accent-shadow-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+    box-shadow: 0 0 20px var(--accent-hover-shadow-color),
+      0 0 10px var(--secondary-accent-shadow-color);
+    transform: translateY(-2px);
+  }
+}

@@ -36,7 +36,7 @@ export default function Login() {
             placeholder="Enter your password"
           />
 
-          <button className="loginBtn">
+          <button className="btn">
             {ispending ? "Loading" : "Sign In"}
           </button>
         </form>

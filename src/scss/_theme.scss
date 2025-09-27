@@ -13,6 +13,17 @@
   --accent-hover-color: #{$Accent-Hover-Color};
   --success-msg-color: #{$Succes-Message-Color};
   --error-msg-color: #{$Error-Message-Color};
+
+  //new colors
+  --color-bg: #{$color-bg};
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-text: #{$color-text};
+  --color-border: #{$color-border};
+  --shadow-neon: #{$shadow-neon};
+  --accent-shadow-color: #{$accent-shadow-color};
+  --accent-hover-shadow-color: #{$accent-hover-shadow-color};
+  --secondary-accent-shadow-color: #{$secondary-accent-shadow-color};
 }
 
 .dark-mode {
@@ -28,4 +39,15 @@
   --accent-hover-color: #{$Accent-Hover-Color};
   --success-msg-color: #{$Succes-Message-Color};
   --error-msg-color: #{$Error-Message-Color};
+
+  //new colors
+  --color-bg: #{$color-bg};
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-text: #{$color-text};
+  --color-border: #{$color-border};
+  --shadow-neon: #{$shadow-neon};
+  --accent-shadow-color: #{$accent-shadow-color};
+  --accent-hover-shadow-color: #{$accent-hover-shadow-color};
+  --secondary-accent-shadow-color: #{$secondary-accent-shadow-color};
 }

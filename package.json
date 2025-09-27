@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "next lint",
     "sass:watch": "sass --watch src/scss:./public/css --style=expanded",
     "sass:build": "sass --no-source-map src/scss:./public/css --style=compress"
   },
@@ -17,6 +17,7 @@
     "react-dom": "19.1.0",
     "react-icons": "^5.5.0",
     "sass": "^1.91.0",
+    "swiper": "^12.0.2",
     "swr": "^2.3.6"
   },
   "devDependencies": {

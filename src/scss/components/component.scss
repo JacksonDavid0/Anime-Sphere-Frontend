@@ -28,8 +28,8 @@
     }
   }
   #inputSelect {
-    height: 47.475px;
     padding: 0 4%;
+    height: 47.475px;
     appearance: none;
     &:hover {
       cursor: pointer;
@@ -44,7 +44,7 @@
     font-size: medium;
     border-radius: 10px;
     padding: 2% 0 2% 4%;
-    color: var(--primary-text-color);
+    color: var(--primary-text-colspaor);
     border: 2px solid var(--input-border-color);
     background-color: var(--input-bg--color);
     &:hover {
@@ -52,17 +52,17 @@
     }
     .select-image {
       width: 36px;
-      border-radius: 50px;
       height: 36px;
       margin-top: -10px;
+      border-radius: 50px;
     }
   }
   .password {
     display: flex;
   }
   .showPassword {
-    border: 0px;
     width: 10%;
+    border: 0px;
     display: flex;
     font-size: 25px;
     margin-left: -11%;
@@ -92,50 +92,67 @@
     color: var(--accent-color);
   }
   .logo-text {
+    font-size: 2rem;
     font-weight: bold;
     margin-left: 1rem;
-    font-size: 2rem;
     line-height: 2.25rem;
     color: var(--primary-text-color);
   }
 }
 
 .navbar {
-  background-color: var(--secondary-bg-color);
-  color: var(--primary-text-color);
-  border-radius: 0.625rem;
-  padding: 1rem;
-  position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 5;
+  padding: 1rem;
+  border-radius: 0.625rem;
+  position: relative;
+  color: var(--primary-text-color);
+  background-color: var(--secondary-bg-color);
   box-shadow: 0 4px 6px -1px var(--box-shadow-color);
 
   .container {
-    max-width: 1280px;
+    display: flex;
     margin: 0 auto;
     padding: 0 1rem;
-    display: flex;
-    justify-content: space-between;
+    max-width: 1280px;
     align-items: center;
+    justify-content: space-between;
   }
 
   .nav-logo {
+    z-index: 5;
     margin-bottom: 0;
-    z-index: 10; // Ensure logo stays above the mobile menu
+  }
+
+  .nav-bar {
+    width: 3rem;
+    height: 3rem;
+    display: none;
+    font-size: 1.3rem;
+    align-items: center;
+    border-radius: 3.125rem;
+    justify-content: center;
+    background-color: transparent;
+    border: 0.125rem solid var(--primary-bg-color);
+    padding: 0;
+    cursor: pointer;
+    &:hover {
+      color: var(--accent-color);
+    }
   }
 
   .navbar-links {
-    display: flex;
     gap: 1.5rem;
+    display: flex;
     font-size: 1.3rem;
   }
 
   .navbar-links a {
     display: flex;
     align-items: center;
-    color: var(--primary-text-color);
-    transition: color 0.2s;
     text-decoration: none;
+    transition: color 0.2s;
+    color: var(--primary-text-color);
 
     &.is-active {
       font-weight: bold;
@@ -146,42 +163,121 @@
     color: var(--accent-color);
   }
 
-  // Hamburger menu button - hidden on desktop
-  // .navbar-toggler {
-  //   display: none;
-  //   background: none;
-  //   border: none;
-  //   cursor: pointer;
-  //   padding: 0;
-  //   z-index: 10;
-
-  //   span {
-  //     display: block;
-  //     width: 25px;
-  //     height: 3px;
-  //     background-color: var(--primary-text-color);
-  //     margin: 5px 0;
-  //     transition: all 0.3s ease-in-out;
-  //   }
-  // }
+  .btn-holder {
+    z-index: 0;
+    gap: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .theme-btn {
-  display: flex;
+  padding: 0;
   width: 3rem;
   height: 3rem;
+  display: flex;
+  cursor: pointer;
+  font-size: 1.3rem;
   align-items: center;
+  border-radius: 3.125rem;
   justify-content: center;
   background-color: transparent;
-  border: var(--secondary-text-color);
-  border-radius: 3.125rem;
-  padding: 0;
-  cursor: pointer;
+  border: 0.125rem solid var(--primary-bg-color);
   &:hover {
-    color: var(--accent-hover-color);
-  }
-  &.is-active {
-    color: var(--accent-hover-color);
+    color: var(--accent-color);
   }
 }
+
+.header {
+  top: 0;
+  padding: 1rem;
+  display: flex;
+  margin-top: 1rem;
+  border-radius: 0.625rem;
+  color: var(--primary-text-color);
+  background-color: var(--secondary-bg-color);
+  box-shadow: 0 4px 6px -1px var(--box-shadow-color);
+  &:hover {
+    cursor: pointer;
+  }
+
+  .header-img {
+    .image {
+      width: 27.5rem;
+      height: 35.5rem;
+      border-radius: 0.625rem;
+    }
+  }
+
+  .header-title {
+    display: flex;
+    padding-left: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    h1 {
+      font-size: 4rem;
+    }
+    p {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  }
+}
+.swiper {
+  top: 0;
+  margin-top: 1rem;
+  .swiper-link {
+    height: 35rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.85rem;
+    border-radius: 0.625rem;
+    color: var(--primary-text-color);
+    background-color: var(--secondary-bg-color);
+    box-shadow: 0 4px 6px -1px var(--box-shadow-color);
+    .swiper-image {
+      width: 75%;
+      height: 85%;
+      border-radius: 0.625rem;
+    }
+    .swiper-title {
+      padding-top: 1rem;
+      h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.swiper-pagination {
+  position: relative !important;
+  width: 10%;
+  margin-top: 15px;
+  // border-radius: 1rem !important;
+}
+
+// .swiper-pagination-bullet {
+//   background: #333;
+// }
+
+.swiper-pagination-progressbar {
+  width: 50% !important;
+  margin: 0 auto !important;
+  height: 5px;
+  position: relative !important;
+  margin-top: 15px !important;
+  border-radius: 1rem !important;
+}
+.swiper-pagination-progressbar-fill {
+  background: var(--accent-color) !important;
+  border-radius: 1rem !important;
+}
+
 @include responsive-component;

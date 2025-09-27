@@ -4,6 +4,10 @@
 @use "./register/register.scss";
 @use "./template/template.scss";
 @use "./components/component.scss";
+@use "./components/error.scss";
+@use "./components/button.scss";
+@use "swiper/css";
+@use "swiper/css/pagination";
 // @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 * {
   margin: 0;
@@ -20,6 +24,8 @@ body {
 }
 
 .loading {
+  z-index: 10;
+  position: relative;
   margin: 0;
   background-color: var(--primary-bg-color);
   color: var(--primary-text-color);
@@ -112,21 +118,5 @@ body {
     font-size: 1.125rem;
     color: var(--secondary-text-color);
     margin-bottom: 2rem;
-  }
-
-  .btn {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--primary-bg-color);
-    font-weight: bold;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-  }
-
-  .btn:hover {
-    background-color: var(--accent-hover-color);
   }
 }
