@@ -5,10 +5,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
 import Link from "next/link";
-import { TrendingAnime } from "@/services/trending-api";
+import { Anime } from "@/services/upcoming-api";
 
-export default function TrendingBar() {
-  const { data } = useSWR("/trendingAnime");
+export default function UpcomingBar() {
+  const { data } = useSWR("/upcomingAnime");
+
   return (
     <Swiper
       modules={[Pagination, Autoplay]}
@@ -30,9 +31,9 @@ export default function TrendingBar() {
         },
       }}
       // scrollbar={{ draggable: true }}
-      className="trending-swiper trending-bar"
+      className="trending-swiper upcoming-bar"
     >
-      {data?.map((anime: TrendingAnime) => (
+      {data?.map((anime: Anime) => (
         <SwiperSlide key={anime.mal_id} className="swiper-slide">
           <Link href={"/"} target="_blank" className="swiper-link">
             <Image
@@ -45,7 +46,7 @@ export default function TrendingBar() {
             <div className="swiper-text">
               <p className="swiper-title">Title: {anime.title}</p>
               <p className="">Genre: {anime.genre}</p>
-              <p className="">Status: {anime.status}</p>
+              <p className="">Date: {anime.date}</p>
             </div>
           </Link>
         </SwiperSlide>

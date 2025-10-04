@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 // Defines the props for our dramatic error page
@@ -9,28 +10,32 @@ interface ErrorPageProps {
 }
 
 const ErrorPage: React.FC<ErrorPageProps> = ({ statusCode, message }) => {
+  const pathname = usePathname();
   return (
-    <div className="error-container">
-      {/* Title block with Glitch/CRT effect */}
-      <h1 className="glitch-title" data-text={statusCode}>
-        {statusCode}
-      </h1>
+    <div className="error">
+      <div className="container">
+        <h1 className="heading-404" data-text={statusCode}>
+          {statusCode ? statusCode : "500"}
+        </h1>
 
-      {/* Error message card */}
-      <div className="error-card">
-        <p className="status-text">
+        <p className="sub-heading">
           <span className="status-icon">⚠️</span>
-          Connection Lost. System Alert:
+          An Error Occour
         </p>
 
-        <p className="error-message">{message}</p>
+        <p className="message">
+          {message ? message : "Oops! Something went wrong"}
+        </p>
 
-        {/* Call to action button */}
-        <Link href="/" className="btn">
-          Reboot System (Return Home)
+        <Link href={pathname} className="btn">
+          Try Reload Page
         </Link>
+        <br />
 
-        <p className="sub-text">Access Denied. Protocol 7 active.</p>
+        <br />
+        <Link href={"/"} className="link">
+          Or Return Home
+        </Link>
       </div>
     </div>
   );

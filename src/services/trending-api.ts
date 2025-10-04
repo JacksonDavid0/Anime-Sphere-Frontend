@@ -1,64 +1,80 @@
 "use server";
 
-// Simple seeded pseudo-random number generator (LCG)
-function seededRandom(seed: number) {
-  let state = seed;
-  return function () {
-    state = (state * 9301 + 49297) % 233280;
-    return state / 233280;
-  };
+import { random } from "@/utils/randomSeed";
+
+export interface TrendingAnime {
+  mal_id: number;
+  title: string;
+  url: string;
+  image_url: string;
+  status: string;
+  genre: string;
 }
 
-export const apiTrending = async () => {
-  const BASE_URL = "https://api.jikan.moe/v4/top/anime";
+export const apiTrending = async (): Promise<
+  // Changed return type to include error
 
-  const top_anime = await fetch(BASE_URL, { next: { revalidate: 3600 } }).then(
-    (res) => res.json()
-  );
+  TrendingAnime[] | { error: string }
+> => {
+  const BASE_URL = "https://api.jikan.moe/v4/top/anime"; // Using anime ID 1 (Cowboy Bebop) for news
 
-  if (!top_anime.data || top_anime.data.length === 0) {
-    return null;
+  // Create a seed from the current date (UTC) to ensure it's the same for all users regardless of timezone
+
+  const animeTrending = await fetch(BASE_URL, {
+    next: { revalidate: 3600 },
+  }).then((res) => res.json());
+  if (!animeTrending.data || animeTrending.data.length === 0) {
+    const error =
+      "Something went wrong on our side. We're on it! Give us a minute, then try again";
+    return { error };
   }
 
-  // Create a seed from the current date (UTC) to ensure it's the same for all users regardless of timezone.
-  const today = new Date();
-  const seed =
-    today.getUTCFullYear() * 10000 +
-    (today.getUTCMonth() + 1) * 100 +
-    today.getUTCDate();
-  const random = seededRandom(seed);
-
-  const tvAnime = top_anime.data.filter(
-    (value: { type: string }) => value.type === "TV"
-  );
-
-  // Shuffle tvAnime to get random anime from the list
-  for (let i = tvAnime.length - 1; i > 0; i--) {
+  // Shuffle news articles to get random ones
+  const shuffledTrending = [...animeTrending.data];
+  for (let i = shuffledTrending.length - 1; i > 0; i--) {
     const j = Math.floor(random() * (i + 1));
-    [tvAnime[i], tvAnime[j]] = [tvAnime[j], tvAnime[i]];
+    [shuffledTrending[i], shuffledTrending[j]] = [
+      shuffledTrending[j],
+      shuffledTrending[i],
+    ];
   }
 
-  const trendingAnime = [];
-  for (const anime of tvAnime) {
-    if (trendingAnime.length >= 10) {
-      break;
-    }
+  // Take the first 3 news articles
+  const trendingData: TrendingAnime[] = [];
 
-    let isSeason = false;
-    for (const trending of trendingAnime) {
-      if (
-        trending.title.startsWith(anime.title) ||
-        anime.title.startsWith(trending.title)
-      ) {
-        isSeason = true;
-        break;
+  for (
+    let i = 0;
+    trendingData.length < 10 && i < shuffledTrending.length;
+    i++
+  ) {
+    const trending = shuffledTrending[i];
+    const imageUrl = trending.images?.jpg?.large_image_url;
+
+    if (imageUrl) {
+      try {
+        // Check if the image URL is
+        const response = await fetch(imageUrl, { method: "HEAD" });
+        if (response.ok) {
+          trendingData.push({
+            mal_id: trending.mal_id,
+            title: trending.title_english || trending.title,
+            url: trending.url,
+            image_url: imageUrl, // Use imageUrl directly
+            status: trending.status,
+            genre:
+              trending.genres
+                .map((genre: { name: string }) => genre.name)
+                .join(", ") || "Unknown", // Get all genre names
+          });
+        }
+      } catch (error) {
+        // Do nothing, just try the next one
+        console.error(
+          `Error checking image URL for trending api ${trending.mal_id}: ${imageUrl}`,
+          error
+        );
       }
     }
-
-    if (!isSeason) {
-      trendingAnime.push(anime);
-    }
   }
-
-  return trendingAnime;
+  return trendingData;
 };

@@ -257,11 +257,12 @@
   height: 5px;
   position: relative !important;
   margin-top: 15px !important;
-  border-radius: 10px !important;
+  border-radius: 1rem !important;
 }
 
 .swiper-pagination-progressbar-fill {
-  background: var(--swiper-theme-color, var(--accent-color)) !important;
+  background: var(--accent-color) !important;
+  border-radius: 1rem !important;
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {

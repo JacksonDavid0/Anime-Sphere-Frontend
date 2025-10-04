@@ -213,18 +213,27 @@
   .header-title {
     display: flex;
     padding-left: 2rem;
+    text-align: left;
     flex-direction: column;
     justify-content: center;
     h1 {
       font-size: 4rem;
     }
-    p {
+    p:nth-child(2) {
       font-size: 2rem;
       font-weight: bold;
     }
+    p:nth-child(3) {
+      font-size: 1rem;
+      color: var(--secondary-text-color);
+      font-weight: lighter;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
-.swiper {
+.trending-swiper {
   top: 0;
   margin-top: 1rem;
   .swiper-link {
@@ -256,17 +265,60 @@
     }
   }
 }
+
+.news-swiper {
+  top: 0;
+  margin-top: 1rem;
+  .swiper-link {
+    height: 35rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 0.85rem;
+    border-radius: 0.625rem;
+    color: var(--primary-text-color);
+    background-color: var(--secondary-bg-color);
+    box-shadow: 0 4px 6px -1px var(--box-shadow-color);
+    .swiper-image {
+      width: 75%;
+      height: 85%;
+      border-radius: 0.625rem;
+    }
+    .swiper-title {
+      padding-top: 1rem;
+      h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+    .swiper-news {
+      // Hide by default
+      display: none;
+      position: absolute;
+      top: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+
+      // Show when .is-visible class is added
+      &.is-visible {
+        display: block;
+        opacity: 1;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
 .swiper-pagination {
   position: relative !important;
   width: 10%;
   margin-top: 15px;
-  // border-radius: 1rem !important;
 }
-
-// .swiper-pagination-bullet {
-//   background: #333;
-// }
-
 .swiper-pagination-progressbar {
   width: 50% !important;
   margin: 0 auto !important;

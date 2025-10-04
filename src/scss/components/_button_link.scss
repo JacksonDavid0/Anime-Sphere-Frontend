@@ -20,3 +20,14 @@
     transform: translateY(-2px);
   }
 }
+
+.link {
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  //   margin: 1rem 0;
+  &:hover {
+    text-decoration: underline;
+  }
+}

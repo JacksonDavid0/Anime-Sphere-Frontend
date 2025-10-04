@@ -6,7 +6,6 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh; /* min-h-screen */
-  /* Inline styles to ensure email client compatibility */
 }
 .verify .container {
   width: 100%; /* w-full */
@@ -40,6 +39,9 @@
   font-weight: 600;
   color: var(--accent-color);
   margin-bottom: 1.5rem;
+}
+.verify {
+  /* Inline styles to ensure email client compatibility */
 }
 .verify .button {
   background-color: var(--accent-color);
@@ -94,7 +96,6 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh; /* min-h-screen */
-  /* Inline styles to ensure email client compatibility */
 }
 .verified .container {
   width: 100%; /* w-full */
@@ -132,6 +133,9 @@
 }
 .verified .mb-6 {
   margin-bottom: 1.5rem;
+}
+.verified {
+  /* Inline styles to ensure email client compatibility */
 }
 .verified .button {
   background-color: var(--accent-color);
@@ -230,21 +234,6 @@
   margin-top: 0.25rem; /* mt-1 */
   display: block;
   font-weight: 400; /* font-normal */
-}
-.reset-password .submit-button {
-  width: 100%;
-  background-color: var(--accent-color); /* bg-orange-500 */
-  color: var(--primary-bg-color); /* text-gray-900 */
-  font-weight: 700; /* font-bold */
-  padding: 0.75rem 1rem; /* py-3 px-4 */
-  border-radius: 0.5rem; /* rounded-lg */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 6px var(--box-shadow-color); /* shadow-md */
-  border: none;
-  cursor: pointer;
-}
-.reset-password .submit-button:hover {
-  background-color: var(--accent-hover-color); /* hover:bg-orange-600 */
 }
 .reset-password .footer {
   text-align: center;
@@ -542,7 +531,6 @@
   align-items: center;
   min-height: 100vh; /* min-h-screen */
   padding: 1rem;
-  /* The following styles were already custom CSS in your original code */
 }
 .expired-verification .container {
   display: flex;
@@ -604,6 +592,9 @@
 .expired-verification .footer a:hover {
   text-decoration: underline;
 }
+.expired-verification {
+  /* The following styles were already custom CSS in your original code */
+}
 .expired-verification .button {
   background-color: var(--accent-color);
   color: var(--primary-bg-color);
@@ -638,7 +629,6 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh; /* min-h-screen */
-  /* Inline styles to ensure email client compatibility */
 }
 .expired-password-link .container {
   display: flex;
@@ -655,6 +645,9 @@
   border-radius: 0.75rem; /* rounded-xl */
   box-shadow: 0 4px 6px var(--box-shadow-color); /* shadow-lg */
   text-align: center; /* text-center */
+}
+.expired-password-link {
+  /* Inline styles to ensure email client compatibility */
 }
 .expired-password-link .button {
   background-color: var(--accent-color);

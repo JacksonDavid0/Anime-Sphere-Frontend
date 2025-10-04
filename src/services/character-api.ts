@@ -1,24 +1,17 @@
 "use server";
 
+import { getDaysSinceStart } from "@/utils/randomSeed";
+
 // import { backgroundRemoval } from "@/utils/background-removal";
 
 // Simple seeded pseudo-random number generator (LCG)
-function seededRandom(seed: number) {
-  let state = seed;
-  return function () {
-    state = (state * 9301 + 49297) % 233280;
-    return state / 233280;
-  };
-}
 
-export const apiCharacters = async () => {
-  // Create a seed from the current date (UTC) to ensure it's the same for all users regardless of timezone.
-  const today = new Date();
-  const seed =
-    today.getUTCFullYear() * 10000 +
-    (today.getUTCMonth() + 1) * 100 +
-    today.getUTCDate();
-  const random = seededRandom(seed);
+export const apiCharacters = async (): Promise<
+  { title: string; name: string; image: string } | { error: string }
+> => {
+  const daysSinceStart = getDaysSinceStart();
+
+  // Create a seed from the current date (UTC) to ensure it'''s the same for all users regardless of timezone
 
   const BASE_URL = "https://api.jikan.moe/v4/top/anime";
 
@@ -30,16 +23,23 @@ export const apiCharacters = async () => {
 
   if (!top_anime.data || top_anime.data.length === 0) {
     // Handle the case where no anime data is returned
-    return null;
+
+    const error =
+      "Something went wrong on our side. We,re on it! Give us a minute, then try again";
+
+    return { error };
   }
 
-  const animeNum = Math.floor(random() * top_anime.data.length);
+  const animeNum = daysSinceStart % top_anime.data.length;
 
   const anime = top_anime.data[animeNum];
 
   if (!anime || !anime.mal_id) {
     // Handle the case where anime data is incomplete
-    return null;
+    const error =
+      "Something went wrong on our side. We,re on it! Give us a minute, then try again";
+
+    return { error };
   }
 
   const id = anime.mal_id;
@@ -51,7 +51,10 @@ export const apiCharacters = async () => {
   );
 
   if (!animeCharacter.data) {
-    return null;
+    const error =
+      "Something went wrong on our side. We,re on it! Give us a minute, then try again";
+
+    return { error };
   }
 
   const mainCharacters = animeCharacter.data.filter(
@@ -60,23 +63,50 @@ export const apiCharacters = async () => {
 
   if (mainCharacters.length === 0) {
     // Handle the case where there are no main characters
-    return null;
+    const error =
+      "Something went wrong on our side. We,re on it! Give us a minute, then try again";
+
+    return { error };
   }
 
-  const characterNum = Math.floor(random() * mainCharacters.length);
+  const characterNum = daysSinceStart % mainCharacters.length;
 
   const character = mainCharacters[characterNum].character;
 
-  const characterObject = {
-    title: anime.title,
+  // Loop to find a character with a valid image URL
+  for (let i = 0; i < mainCharacters.length; i++) {
+    const currentCharacter =
+      mainCharacters[(characterNum + i) % mainCharacters.length].character;
+    const imageUrl = currentCharacter.images.jpg.image_url;
+
+    if (imageUrl) {
+      try {
+        // Check if the image URL is valid by attempting to fetch it
+        const response = await fetch(imageUrl, { method: "HEAD" });
+        if (response.ok) {
+          return {
+            title: anime.title_english ? anime.title_english : anime.title,
+            name: currentCharacter.name,
+            image: imageUrl,
+          };
+        } else {
+          console.warn(
+            `Invalid image URL for character ${currentCharacter.mal_id}: ${imageUrl}`
+          );
+        }
+      } catch (error) {
+        console.error(
+          `Error checking image URL for character ${currentCharacter.mal_id}: ${imageUrl}`,
+          error
+        );
+      }
+    }
+  }
+
+  // If no image URL or invalid, use a placeholder
+  return {
+    title: anime.title_english ? anime.title_english : anime.title,
     name: character.name,
-    image: character.images.jpg.image_url,
+    image: "/placeholder-character.jpg", // Assuming you have a placeholder for characters
   };
-
-  // console.log(character);
-
-  // characterObject.image =
-  //   (await backgroundRemoval(characterObject.image)) || characterObject.image;
-
-  return characterObject;
 };

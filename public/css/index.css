@@ -1,9 +1,9 @@
 /* Error: Can't find stylesheet to import.
  *   ,
- * 7 | @use "swiper/css";
+ * 8 | @use "swiper/css";
  *   | ^^^^^^^^^^^^^^^^^
  *   '
- *   src/scss/index.scss 7:1  root stylesheet */
+ *   src/scss/index.scss 8:1  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 7 \2502  @use \"swiper/css\";\a   \2502  ^^^^^^^^^^^^^^^^^\a   \2575 \a   src/scss/index.scss 7:1  root stylesheet";
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 8 \2502  @use \"swiper/css\";\a   \2502  ^^^^^^^^^^^^^^^^^\a   \2575 \a   src/scss/index.scss 8:1  root stylesheet";
 }

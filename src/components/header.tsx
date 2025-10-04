@@ -8,7 +8,7 @@ import useSWR from "swr";
 
 export default function Header({ image }: { image?: string }) {
   const pathname = usePathname();
-  const { data } = useSWR("/character");
+  const { data } = useSWR("/animeCharacter");
   const [isHomePage, setIsHomePage] = useState(false);
 
   useEffect(() => {
